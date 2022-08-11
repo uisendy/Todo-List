@@ -26,8 +26,8 @@ class UIDisplay {
     if (todo.completed === true) {
       todoInput.setAttribute("checked", "");
       todoLabel.classList.add("completed");
-      // editIcon.classList.add("completed");
-      // deleteIcon.classList.add("completed");
+      editIcon.classList.add("completed");
+      deleteIcon.classList.add("completed");
 
       todoContainer.appendChild(todoInput);
       todoContainer.appendChild(todoLabel);
