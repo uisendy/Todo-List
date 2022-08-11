@@ -1,10 +1,10 @@
-*{
+* {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
 }
 
-body{
+body {
   background-color: rgba(214, 214, 214, 0.858);
   font-family: 'Lato', sans-serif;
 }
@@ -15,14 +15,14 @@ main {
   background-color: rgba(214, 214, 214, 0.858);
 }
 
-.todo-section{
+.todo-section {
   margin-block: 50px;
   background-color: whitesmoke;
   max-width: calc(100vh - 50px);
   box-shadow: 0 0 10px 4px rgba(85, 85, 85, 0.2);
 }
 
-.todo-header{
+.todo-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +30,7 @@ main {
   border-bottom: 0.3px solid rgba(119, 119, 119, 0.3);
 }
 
-form{
+form {
   display: flex;
   justify-content: space-between;
   padding: 2.5%;
@@ -45,20 +45,20 @@ form input {
   font-size: 1.3rem;
 }
 
-form input::placeholder{
+form input::placeholder {
   font-style: italic;
   font-weight: 100;
   font-size: 1.2rem;
 }
 
-form button{
+form button {
   border: none;
   background-color: transparent;
   outline: none;
   cursor: pointer;
 }
 
-.todo{
+.todo {
   display: flex;
   gap: 10px;
   padding: 2.5%;
@@ -66,7 +66,7 @@ form button{
   border-bottom: 0.3px solid rgba(119, 119, 119, 0.3);
 }
 
-.todo.completed{
+.todo.completed {
   background-color: antiquewhite;
 }
 
@@ -76,28 +76,28 @@ form button{
   cursor: pointer;
 }
 
-.todo-label{
+.todo-label {
   width: 93%;
   font-size: 1.2rem;
 }
 
-.todo-label.completed{
+.todo-label.completed {
   text-decoration: line-through;
   color: rgb(124, 124, 124);
 }
 
-.fa-trash-alt{
+.fa-trash-alt {
   display: none;
 }
 
-.clear-complete-container{
+.clear-complete-container {
   padding: 5% 2.5%;
   text-align: center;
   font-size: 1.2rem;
   background-color: rgb(223, 223, 223);
 }
 
-.clear-completed:hover{
+.clear-completed:hover {
   text-decoration: underline;
 }
 
@@ -105,6 +105,6 @@ form button{
   display: none;
 }
 
-.fa-trash-alt.completed{
+.fa-trash-alt.completed {
   display: block;
 }
