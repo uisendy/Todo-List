@@ -1,31 +1,31 @@
 const todosDisplayContainer = document.querySelector(
-  ".todos-display-container"
+  '.todos-display-container',
 );
 
 class UIDisplay {
   static displayTodoItem = (todo) => {
-    const todoContainer = document.createElement("div");
-    todoContainer.className = "todo";
+    const todoContainer = document.createElement('div');
+    todoContainer.className = 'todo';
 
-    const todoInput = document.createElement("input");
-    todoInput.className = "checkbox";
-    todoInput.type = "checkbox";
+    const todoInput = document.createElement('input');
+    todoInput.className = 'checkbox';
+    todoInput.type = 'checkbox';
     todoInput.id = todo.index;
 
-    const todoLabel = document.createElement("label");
+    const todoLabel = document.createElement('label');
     todoLabel.for = todo.index;
-    todoLabel.className = "todo-label";
+    todoLabel.className = 'todo-label';
     todoLabel.textContent = todo.description;
 
-    const editIcon = document.createElement("i");
-    editIcon.className = "fas fa-ellipsis-v";
+    const editIcon = document.createElement('i');
+    editIcon.className = 'fas fa-ellipsis-v';
 
-    const deleteIcon = document.createElement("i");
-    deleteIcon.className = "fas fa-trash-alt";
+    const deleteIcon = document.createElement('i');
+    deleteIcon.className = 'fas fa-trash-alt';
 
     if (todo.completed === true) {
-      todoInput.setAttribute("checked", "");
-      todoLabel.classList.add("completed");
+      todoInput.setAttribute('checked', '');
+      todoLabel.classList.add('completed');
 
       todoContainer.appendChild(todoInput);
       todoContainer.appendChild(todoLabel);
