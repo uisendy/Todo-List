@@ -13,6 +13,8 @@ class LocalStore {
     const todos = LocalStore.getTodos();
     return todos.length ? todos[todos.length - 1].index + 1 : 1;
   };
+
+  static removeTodo = () => {};
 }
 
 export default LocalStore;

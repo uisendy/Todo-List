@@ -66,7 +66,7 @@ form button{
   border-bottom: 0.3px solid rgba(119, 119, 119, 0.3);
 }
 
-.todo.completed{
+.todo.edit{
   background-color: antiquewhite;
 }
 
@@ -76,11 +76,41 @@ form button{
   cursor: pointer;
 }
 
+.edit-form {
+  display: none;
+  width: 93%;
+  background-color: transparent;
+  border: none;
+
+}
+.edit-todo-input{
+  display: none;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 1.3rem;
+}
+
+.edit-form-btn{
+  display: none;
+}
+
+.edit-form.edit{
+  display: block;
+  padding: 0;
+}
+
+.edit-todo-input.edit{
+  display: block;
+}
 .todo-label{
   width: 93%;
   font-size: 1.2rem;
 }
-
+.todo-label.edit{
+  display: none;
+}
 .todo-label.completed{
   text-decoration: line-through;
   color: rgb(124, 124, 124);
@@ -88,6 +118,13 @@ form button{
 
 .fa-trash-alt{
   display: none;
+  padding-left: 20px;
+  color: rgb(60, 60, 60);
+  cursor: pointer;
+}
+
+.fa-trash-alt:hover{
+  color: black;
 }
 
 .clear-complete-container{
@@ -107,4 +144,5 @@ form button{
 
 .fa-trash-alt.completed{
   display: block;
+  
 }
