@@ -34,9 +34,11 @@ class UIDisplay {
 
     const editIcon = document.createElement("i");
     editIcon.className = "fas fa-ellipsis-v";
+    editIcon.id = todo.index;
 
     const deleteIcon = document.createElement("i");
     deleteIcon.className = "fas fa-trash-alt";
+    deleteIcon.id = todo.index;
 
     if (todo.completed === true) {
       todoInput.setAttribute("checked", "");
@@ -60,6 +62,24 @@ class UIDisplay {
 
       todosDisplayContainer.appendChild(todoContainer);
     }
+  };
+
+  static handleCheck = (element) => {
+    element.nextElementSibling.nextElementSibling.classList.toggle("completed");
+  };
+
+  static handleEdit = (element) => {
+    const trashIcon = element.nextElementSibling.nextElementSibling;
+    element.nextElementSibling.classList.add("completed");
+    trashIcon.classList.add("completed");
+    element.classList.add("edit");
+    const editTodoForm = element.parentElement.childNodes[1];
+    const editTodoInput = editTodoForm.firstChild;
+    editTodoForm.classList.add("edit");
+    editTodoInput.classList.add("edit");
+    editTodoInput.focus();
+    editTodoInput.value = element.textContent;
+    element.parentElement.classList.add("edit");
   };
 
   static removeTodo = (todo) => {
