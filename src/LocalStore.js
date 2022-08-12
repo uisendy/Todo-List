@@ -1,12 +1,10 @@
 class LocalStore {
-  static getTodos = () => {
-    return localStorage.getItem("TodosAlpha")
-      ? JSON.parse(localStorage.getItem("TodosAlpha"))
-      : [];
-  };
+  static getTodos = () => (localStorage.getItem('TodosAlpha')
+    ? JSON.parse(localStorage.getItem('TodosAlpha'))
+    : []);
 
   static saveTodos = (todos) => {
-    localStorage.setItem("TodosAlpha", JSON.stringify(todos));
+    localStorage.setItem('TodosAlpha', JSON.stringify(todos));
   };
 
   static indexGenerator = () => {
@@ -14,20 +12,15 @@ class LocalStore {
     return todos.length ? todos[todos.length - 1].index + 1 : 1;
   };
 
-  static resetIndex = (todos) => {
-    return todos.map((todo, i) => ({ ...todo, index: i + 1 }));
-  };
+  static resetIndex = (todos) => todos.map((todo, i) => ({ ...todo, index: i + 1 }));
 
   static removeTodo = (index) => {
     const todos = this.getTodos();
-    const removedTodo = todos.filter((todo) => {
-      return todo.index.toString() !== index.id.toString();
-    });
-    console.log(index.id);
-    console.log(removedTodo);
+    const removedTodo = todos.filter(
+      (todo) => todo.index.toString() !== index.id.toString(),
+    );
     const resetTodo = this.resetIndex(removedTodo);
     this.saveTodos(resetTodo);
-    console.log(resetTodo);
   };
 
   static handleCheck = (index) => {
@@ -35,9 +28,9 @@ class LocalStore {
     const checkedTodos = todos.map((todo) => {
       if (todo.index.toString() === index.id.toString()) {
         if (todo.completed === false) {
-          index.setAttribute("checked", "");
+          index.setAttribute('checked', '');
         } else {
-          index.removeAttribute("checked");
+          index.removeAttribute('checked');
         }
         return { ...todo, completed: !todo.completed };
       }
@@ -48,11 +41,9 @@ class LocalStore {
 
   static handleEditTodo = (element) => {
     const todos = LocalStore.getTodos();
-    const editedTodos = todos.map((todo) => {
-      return todo.index.toString() === element.id
-        ? { ...todo, description: element.nextElementSibling.textContent }
-        : todo;
-    });
+    const editedTodos = todos.map((todo) => (todo.index.toString() === element.id
+      ? { ...todo, description: element.nextElementSibling.textContent }
+      : todo));
     LocalStore.saveTodos(editedTodos);
   };
 }
