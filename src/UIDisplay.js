@@ -12,6 +12,21 @@ class UIDisplay {
     todoInput.type = "checkbox";
     todoInput.id = todo.index;
 
+    const editForm = document.createElement("form");
+    editForm.className = "edit-form";
+    editForm.id = todo.index;
+
+    const editTodoInput = document.createElement("input");
+    editTodoInput.className = "edit-todo-input";
+    editTodoInput.type = "text";
+
+    const editFormBtn = document.createElement("button");
+    editFormBtn.className = "edit-form-btn";
+    editFormBtn.type = "submit";
+
+    editForm.appendChild(editTodoInput);
+    editForm.appendChild(editFormBtn);
+
     const todoLabel = document.createElement("label");
     todoLabel.for = todo.index;
     todoLabel.className = "todo-label";
@@ -26,10 +41,11 @@ class UIDisplay {
     if (todo.completed === true) {
       todoInput.setAttribute("checked", "");
       todoLabel.classList.add("completed");
-      editIcon.classList.add("completed");
-      deleteIcon.classList.add("completed");
+      // editIcon.classList.add("completed");
+      // deleteIcon.classList.add("completed");
 
       todoContainer.appendChild(todoInput);
+      todoContainer.appendChild(editForm);
       todoContainer.appendChild(todoLabel);
       todoContainer.appendChild(editIcon);
       todoContainer.appendChild(deleteIcon);
@@ -37,12 +53,17 @@ class UIDisplay {
       todosDisplayContainer.appendChild(todoContainer);
     } else {
       todoContainer.appendChild(todoInput);
+      todoContainer.appendChild(editForm);
       todoContainer.appendChild(todoLabel);
       todoContainer.appendChild(editIcon);
       todoContainer.appendChild(deleteIcon);
 
       todosDisplayContainer.appendChild(todoContainer);
     }
+  };
+
+  static removeTodo = (todo) => {
+    todo.parentElement.remove();
   };
 }
 

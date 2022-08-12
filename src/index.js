@@ -34,19 +34,62 @@ todoInputForm.addEventListener("submit", (e) => {
 todosDisplayContainer.addEventListener("change", (e) => {
   if (e.target.classList.contains("checkbox")) {
     handleCheck(e.target);
-    e.target.parentElement.lastElementChild.classList.toggle("completed");
+    // console.log(e.target.parentElement.lastElementChild.classList);
+    // e.target.parentElement.lastElementChild.classList.toggle("completed");
+    // e.target.nextElementSibling.nextElementSibling.nextElementSibling.classList.toggle(
+    //   "completed"
+    // );
     e.target.nextElementSibling.nextElementSibling.classList.toggle(
       "completed"
     );
-    e.target.nextElementSibling.classList.toggle("completed");
   }
 });
 
-todosDisplayContainer.childNodes.forEach((todo) => {
-  todo.addEventListener("click", (e) => {});
+const editTodoList = document.querySelectorAll(".edit-todo-input");
+const todoLabels = document.querySelectorAll(".todo-label");
+const editForms = document.querySelectorAll(".edit-form");
+console.log(editForms);
+
+todosDisplayContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("todo-label")) {
+    const deleteTodo = e.target.nextElementSibling.nextElementSibling;
+    e.target.nextElementSibling.classList.add("completed");
+    deleteTodo.classList.add("completed");
+    e.target.classList.add("edit");
+    const editTodoForm = e.target.parentElement.childNodes[1];
+    const editTodoInput = editTodoForm.firstChild;
+    editTodoForm.classList.add("edit");
+    editTodoInput.classList.add("edit");
+    editTodoInput.focus();
+    editTodoInput.value = e.target.textContent;
+    e.target.parentElement.classList.add("edit");
+  }
+
+  if (e.target.classList.contains("fa-trash-alt")) {
+    UIDisplay.removeTodo(e.target);
+    // LocalStore.removeTodo();
+  }
 });
 
-const handleEditTodo = () => {};
+todosDisplayContainer.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const todoLabel = e.target.nextElementSibling;
+  e.target.classList.remove("edit");
+  todoLabel.classList.remove("edit");
+  e.target.parentElement.classList.remove("edit");
+  todoLabel.textContent = e.target.firstChild.value;
+  handleEditTodo(e.target);
+});
+
+const handleEditTodo = (element) => {
+  const todos = LocalStore.getTodos();
+  const editedTodos = todos.map((todo) => {
+    return todo.index.toString() === element.id
+      ? { ...todo, description: element.nextElementSibling.textContent }
+      : todo;
+  });
+  LocalStore.saveTodos(editedTodos);
+};
 
 const handleCheck = (index) => {
   const todos = LocalStore.getTodos();
