@@ -135,6 +135,15 @@ form button {
   text-align: center;
   font-size: 1.2rem;
   background-color: rgb(223, 223, 223);
+
+}
+
+.clear-completed{
+  background-color: rgb(223, 223, 223);
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+  font-family: 'Lato', sans-serif;
 }
 
 .clear-completed:hover {
