@@ -4,6 +4,8 @@ Creating a simple Todo List that stores list using Class and Stores in Local Sto
 
 ### Live Demo
 
+Click [here](https://uisendy.github.io/Todo-List/dist/) to view the full project live.
+
 ## Built With
 
 ###### Languages
