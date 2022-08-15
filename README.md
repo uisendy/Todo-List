@@ -1,4 +1,4 @@
-# Awesome Books
+# TODO-LIST
 
 Creating a simple Todo List that stores list using Class and Stores in Local Storage. Handling a Complete CRUD operations. The project is fully a javaScript project with Webpack for handling the Package.
 
