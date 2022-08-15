@@ -28,6 +28,7 @@ todoInputForm.addEventListener('submit', (e) => {
   UIDisplay.displayTodoItem(newTodo);
   todos.push(newTodo);
   LocalStore.saveTodos(todos);
+  e.target.firstElementChild.value = '';
 });
 
 todosDisplayContainer.addEventListener('change', (e) => {

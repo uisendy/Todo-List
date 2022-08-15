@@ -10,15 +10,15 @@ body {
 }
 
 main {
-  width: 90%;
   margin: 0 auto;
-  background-color: rgba(214, 214, 214, 0.858);
+  width: 100%;
 }
 
 .todo-section {
-  margin-block: 50px;
+  margin: 50px auto;
+  width: 90%;
   background-color: whitesmoke;
-  max-width: calc(100vh - 50px);
+  max-height: calc(100vh - 50px);
   box-shadow: 0 0 10px 4px rgba(85, 85, 85, 0.2);
 }
 
@@ -131,7 +131,7 @@ form button {
 }
 
 .clear-complete-container {
-  padding: 5% 2.5%;
+  padding: 3% 2.5%;
   text-align: center;
   font-size: 1.2rem;
   background-color: rgb(223, 223, 223);
@@ -155,4 +155,30 @@ form button {
 
 .fa-trash-alt.completed {
   display: block;
+}
+
+@media screen and (max-width: 300px) {
+  * {
+    font-size: 0.9rem;
+  }
+
+  .clear-completed {
+    font-size: 1rem;
+  }
+
+  form input {
+    font-size: 1rem;
+  }
+
+  form input::placeholder {
+    font-weight: 50;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 840px) {
+  .todo-section {
+    margin: 50px auto;
+    width: 60%;
+  }
 }
